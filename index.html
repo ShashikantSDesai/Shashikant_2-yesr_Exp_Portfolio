@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shashikant S Desai — Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#111111;
+  --card:#161616;
+  --border:#2a2a2a;
+  --border2:#3a3a3a;
+  --green:#0ea86b;
+  --green-light:#0d2b1f;
+  --green-dim:rgba(14,168,107,0.1);
+  --blue:#2563eb;
+  --blue-light:#0d1b38;
+  --purple:#7c3aed;
+  --purple-light:#1a1030;
+  --orange:#ea6c00;
+  --dark:#f1f5f9;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --muted2:#64748b;
+  --font:'Plus Jakarta Sans',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 16px rgba(0,0,0,0.05);
+  --shadow-lg:0 8px 32px rgba(0,0,0,0.1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.65;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:68px;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-brand{font-weight:800;font-size:1.1rem;color:var(--dark);text-decoration:none;letter-spacing:-0.02em}
+.nav-brand span{color:var(--green)}
+.nav-links{display:flex;list-style:none;gap:0.2rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;padding:0.4rem 0.9rem;border-radius:6px;transition:all 0.2s}
+.nav-links a:hover{color:var(--dark);background:var(--border)}
+.nav-cta{padding:0.5rem 1.3rem;background:var(--dark);color:#fff;font-size:0.8rem;font-weight:600;text-decoration:none;border-radius:8px;transition:all 0.2s}
+.nav-cta:hover{background:var(--green);transform:translateY(-1px)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:8rem 4rem 5rem;position:relative;overflow:hidden;background:var(--bg)}
+.hero-bg-shape{position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(14,168,107,0.08) 0%,transparent 65%);pointer-events:none}
+.hero-bg-shape2{position:absolute;bottom:-100px;left:-50px;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,0.06) 0%,transparent 65%);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 420px;gap:5rem;align-items:center;width:100%;max-width:1200px;margin:0 auto}
+.hero-left{position:relative;z-index:1}
+.hero-chip{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;background:var(--green-light);border:1px solid rgba(14,168,107,0.25);border-radius:20px;font-size:0.72rem;color:var(--green);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1.8rem}
+.js-loaded .hero-chip{opacity:0;animation:fadeUp 0.5s ease forwards 0.1s}
+.hero-chip::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-name{font-size:clamp(3rem,5.5vw,5.2rem);font-weight:800;line-height:1;letter-spacing:-0.04em;color:var(--dark);margin-bottom:0.5rem}
+.js-loaded .hero-name{opacity:0;animation:fadeUp 0.6s ease forwards 0.2s}
+.hero-name .accent{color:var(--green)}
+.hero-sub-name{font-size:1.1rem;color:var(--muted);font-weight:500;margin-bottom:0.7rem}
+.js-loaded .hero-sub-name{opacity:0;animation:fadeUp 0.6s ease forwards 0.3s}
+.hero-role{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--muted);font-weight:500;margin-bottom:1.8rem}
+.js-loaded .hero-role{opacity:0;animation:fadeUp 0.6s ease forwards 0.38s}
+.hero-role strong{color:var(--text)}
+.hero-desc{font-size:0.95rem;color:var(--muted);line-height:1.85;max-width:540px;margin-bottom:2.5rem}
+.js-loaded .hero-desc{opacity:0;animation:fadeUp 0.6s ease forwards 0.5s}
+.hero-desc strong{color:var(--text);font-weight:600}
+.hero-btns{display:flex;gap:0.8rem;flex-wrap:wrap}
+.js-loaded .hero-btns{opacity:0;animation:fadeUp 0.6s ease forwards 0.62s}
+.btn-prim{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 2rem;background:var(--dark);color:#fff;font-size:0.85rem;font-weight:600;text-decoration:none;border-radius:8px;transition:all 0.25s}
+.btn-prim:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 8px 24px rgba(14,168,107,0.3)}
+.btn-sec{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 2rem;background:transparent;color:var(--text);font-size:0.85rem;font-weight:600;text-decoration:none;border:1.5px solid var(--border2);border-radius:8px;transition:all 0.25s}
+.btn-sec:hover{border-color:var(--green);color:var(--green)}
+
+/* Hero right card */
+.hero-right{position:relative;z-index:1}
+.js-loaded .hero-right{opacity:0;animation:fadeUp 0.7s ease forwards 0.4s}
+.profile-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;box-shadow:var(--shadow-lg)}
+.pc-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.pc-avatar{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--blue));display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;color:#fff;flex-shrink:0}
+.pc-name{font-weight:700;font-size:1rem;color:var(--dark);line-height:1.3}
+.pc-title{font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
+.pc-available{display:inline-flex;align-items:center;gap:0.4rem;padding:0.22rem 0.7rem;background:var(--green-light);border-radius:20px;font-size:0.68rem;color:var(--green);font-weight:600;margin-top:0.4rem}
+.pc-available::before{content:'';width:5px;height:5px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+.pc-stats{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1.5rem}
+.pc-stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center}
+.pc-stat-num{font-size:1.6rem;font-weight:800;color:var(--dark);line-height:1;margin-bottom:0.2rem}
+.pc-stat-num.g{color:var(--green)}
+.pc-stat-label{font-size:0.65rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
+.pc-cert{background:var(--green-light);border:1px solid rgba(14,168,107,0.2);border-radius:10px;padding:1rem;margin-bottom:1rem}
+.pc-cert-title{font-size:0.72rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem}
+.pc-cert-text{font-size:0.82rem;color:var(--text);font-weight:500}
+.pc-stack{display:flex;flex-wrap:wrap;gap:0.4rem}
+.pc-chip{padding:0.3rem 0.7rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;font-size:0.7rem;color:var(--muted);font-weight:500}
+
+/* SECTION COMMONS */
+section{padding:6rem 4rem}
+.container{max-width:1200px;margin:0 auto}
+.s-eyebrow{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:0.8rem;background:var(--green-light);padding:0.3rem 0.8rem;border-radius:20px;border:1px solid rgba(14,168,107,0.2)}
+.s-title{font-size:clamp(2rem,3.5vw,3rem);font-weight:800;letter-spacing:-0.03em;color:var(--dark);line-height:1.1;margin-bottom:0.8rem}
+.s-sub{font-size:0.92rem;color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:3rem}
+
+/* ABOUT */
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:4rem;align-items:start}
+.about-body{font-size:0.93rem;color:var(--muted);line-height:1.9}
+.about-body p+p{margin-top:1rem}
+.about-body strong{color:var(--text);font-weight:600}
+.about-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;box-shadow:var(--shadow)}
+.ac-title{font-size:0.72rem;font-weight:700;color:var(--muted2);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.2rem}
+.ai-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:0.7rem 0;border-bottom:1px solid var(--border)}
+.ai-row:last-child{border-bottom:none}
+.ai-k{font-size:0.75rem;color:var(--muted);font-weight:500;white-space:nowrap;padding-top:0.05rem}
+.ai-v{font-size:0.82rem;color:var(--text);font-weight:600;text-align:right}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1.5rem}
+.as-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center;transition:all 0.2s}
+.as-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 4px 16px rgba(14,168,107,0.1)}
+.as-num{font-size:1.8rem;font-weight:800;color:var(--green);line-height:1;margin-bottom:0.25rem}
+.as-label{font-size:0.68rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+
+/* EXPERIENCE */
+#experience{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.exp-layout{display:grid;grid-template-columns:220px 1fr;gap:0;border:1.5px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.exp-sidebar{background:var(--bg);border-right:1px solid var(--border)}
+.exp-tab{padding:1.2rem 1.5rem;cursor:pointer;border-left:3px solid transparent;transition:all 0.2s}
+.exp-tab:hover{background:var(--border)}
+.exp-tab.active{border-left-color:var(--green);background:var(--green-light)}
+.et-role{font-size:0.85rem;font-weight:700;color:var(--dark);margin-bottom:0.2rem}
+.et-company{font-size:0.72rem;color:var(--muted)}
+.et-period{font-size:0.68rem;color:var(--green);font-weight:600;margin-top:0.3rem}
+.exp-body{background:var(--card);display:none}
+.exp-body.active{display:block}
+.exp-body-inner{padding:2.5rem}
+.eb-role{font-size:1.4rem;font-weight:800;color:var(--dark);letter-spacing:-0.02em;margin-bottom:0.3rem}
+.eb-meta{font-size:0.82rem;color:var(--muted);margin-bottom:2rem}
+.eb-meta span{color:var(--green);font-weight:600}
+.exp-modules{display:flex;flex-direction:column;gap:1.8rem}
+.em-block{border-left:3px solid var(--border);padding-left:1.2rem;transition:border-color 0.2s}
+.em-block:hover{border-left-color:var(--green)}
+.em-badge{display:inline-flex;padding:0.25rem 0.75rem;border-radius:6px;font-size:0.7rem;letter-spacing:0.06em;font-weight:700;text-transform:uppercase;margin-bottom:0.8rem}
+.em-badge.green{background:var(--green-light);border:1px solid rgba(14,168,107,0.25);color:var(--green)}
+.em-badge.blue{background:var(--blue-light);border:1px solid rgba(37,99,235,0.2);color:var(--blue)}
+.em-badge.purple{background:var(--purple-light);border:1px solid rgba(124,58,237,0.2);color:var(--purple)}
+.em-bullets{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
+.em-bullets li{font-size:0.85rem;color:var(--muted);padding-left:1.3rem;position:relative;line-height:1.65}
+.em-bullets li::before{content:'▸';position:absolute;left:0;color:var(--green);font-size:0.8rem}
+.em-bullets li strong{color:var(--text);font-weight:600}
+
+/* PROJECTS */
+#projects{background:var(--bg)}
+.proj-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.proj-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:all 0.25s}
+.proj-card:hover{border-color:var(--green);box-shadow:0 8px 32px rgba(14,168,107,0.12);transform:translateY(-2px)}
+.proj-card-header{padding:1.6rem 1.8rem 1.4rem;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.proj-card-left{flex:1}
+.proj-card-num{font-family:var(--mono);font-size:0.68rem;font-weight:600;color:var(--green);letter-spacing:0.1em;margin-bottom:0.5rem}
+.proj-card-name{font-size:1rem;font-weight:800;color:var(--dark);line-height:1.3;margin-bottom:0.5rem;letter-spacing:-0.01em}
+.proj-card-client{font-size:0.75rem;color:var(--muted);font-weight:500}
+.proj-card-toggle{width:34px;height:34px;border-radius:50%;background:var(--bg);border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:300;color:var(--muted);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);flex-shrink:0;cursor:pointer;user-select:none;line-height:1}
+.proj-card:hover .proj-card-toggle{border-color:var(--green);color:var(--green);background:var(--green-light)}
+.proj-card.open .proj-card-toggle{background:var(--green);border-color:var(--green);color:#fff;transform:rotate(45deg);box-shadow:0 4px 12px rgba(14,168,107,0.35)}
+.proj-card-tags{display:flex;flex-wrap:wrap;gap:0.35rem;padding:0 1.8rem 1.4rem}
+.p-tag{padding:0.22rem 0.6rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;font-size:0.66rem;color:var(--muted);font-weight:500}
+.proj-card-body{max-height:0;overflow:hidden;transition:max-height 0.45s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease;opacity:0}
+.proj-card.open .proj-card-body{max-height:500px;opacity:1}
+.proj-card-divider{height:1px;background:var(--border);margin:0 1.8rem}
+.proj-bullets{list-style:none;padding:1.4rem 1.8rem;display:flex;flex-direction:column;gap:0.65rem}
+.proj-bullets li{font-size:0.83rem;color:var(--muted);padding-left:1.3rem;position:relative;line-height:1.65}
+.proj-bullets li::before{content:'▸';position:absolute;left:0;color:var(--green);font-size:0.8rem}
+.proj-bullets li strong{color:var(--text);font-weight:600}
+
+/* SKILLS */
+#skills{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.skill-col{display:flex;flex-direction:column;gap:1.2rem}
+.sg{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:1.8rem;box-shadow:var(--shadow)}
+.sg-head{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:1.4rem;display:flex;align-items:center;gap:0.6rem}
+.sg-head::before{content:'';width:10px;height:10px;border-radius:3px;background:var(--green);opacity:0.6}
+.sk-item{margin-bottom:0.95rem}
+.sk-item:last-child{margin-bottom:0}
+.sk-row{display:flex;justify-content:space-between;margin-bottom:0.45rem;font-size:0.82rem}
+.sk-name{color:var(--text);font-weight:500}
+.sk-pct{color:var(--green);font-weight:700;font-family:var(--mono)}
+.sk-track{height:4px;background:var(--border);border-radius:4px;overflow:hidden}
+.sk-bar{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:4px;width:0;transition:width 1.4s cubic-bezier(0.16,1,0.3,1)}
+.tools-wrap{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:1.8rem;box-shadow:var(--shadow)}
+.tools-head{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:1.4rem;display:flex;align-items:center;gap:0.6rem}
+.tools-head::before{content:'';width:10px;height:10px;border-radius:3px;background:var(--blue);opacity:0.6}
+.tools-grid-wrap{display:flex;flex-wrap:wrap;gap:0.6rem}
+.t-chip{padding:0.45rem 0.9rem;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;font-size:0.78rem;color:var(--text);font-weight:500;transition:all 0.2s;cursor:default}
+.t-chip:hover{border-color:var(--green);color:var(--green);background:var(--green-light)}
+.t-chip.hi{border-color:rgba(14,168,107,0.35);background:var(--green-light);color:var(--green)}
+.t-chip.learning{border-color:rgba(124,58,237,0.3);background:var(--purple-light);color:var(--purple)}
+
+/* CERTIFICATIONS */
+#certifications{background:var(--bg)}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.cert-card{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:1.6rem;display:flex;flex-direction:column;gap:0.9rem;transition:all 0.25s;box-shadow:var(--shadow)}
+.cert-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 12px 32px rgba(14,168,107,0.1)}
+.cert-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--bg);border:1px solid var(--border)}
+.cert-name{font-size:0.87rem;font-weight:700;color:var(--dark);line-height:1.4;flex:1}
+.cert-issuer{font-size:0.73rem;color:var(--purple);font-weight:600}
+.cert-badge{display:inline-block;padding:0.2rem 0.65rem;border-radius:6px;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase}
+.cert-badge.active{background:var(--green-light);color:var(--green);border:1px solid rgba(14,168,107,0.25)}
+.cert-badge.done{background:var(--blue-light);color:var(--blue);border:1px solid rgba(37,99,235,0.2)}
+.cert-badge.progress{background:var(--purple-light);color:var(--purple);border:1px solid rgba(124,58,237,0.2)}
+
+/* CONTACT */
+#contact{background:var(--bg2);border-top:1px solid var(--border)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-left p{font-size:0.93rem;color:var(--muted);line-height:1.85;margin-bottom:2.5rem}
+.c-links{display:flex;flex-direction:column;gap:0.8rem}
+.c-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;background:var(--card);border:1.5px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);font-size:0.85rem;font-weight:600;transition:all 0.2s;box-shadow:var(--shadow)}
+.c-link:hover{border-color:var(--green);color:var(--green);transform:translateX(5px);box-shadow:0 4px 16px rgba(14,168,107,0.12)}
+.c-icon{width:40px;height:40px;border-radius:10px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.c-sub{font-size:0.7rem;color:var(--muted);font-weight:400;display:block;margin-top:0.1rem}
+.contact-form{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2.5rem;box-shadow:var(--shadow)}
+.cf-title{font-size:1.3rem;font-weight:800;color:var(--dark);letter-spacing:-0.02em;margin-bottom:1.8rem}
+.cf-field{margin-bottom:1.2rem}
+.cf-field label{display:block;font-size:0.72rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:0.5rem}
+.cf-field input,.cf-field textarea{width:100%;padding:0.8rem 1rem;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--font);font-size:0.88rem;outline:none;transition:border-color 0.2s}
+.cf-field input:focus,.cf-field textarea:focus{border-color:var(--green);background:#fff}
+.cf-field textarea{height:110px;resize:none}
+.cf-btn{width:100%;padding:0.9rem;background:var(--dark);color:#fff;font-size:0.88rem;font-weight:700;border:none;border-radius:8px;cursor:pointer;font-family:var(--font);transition:all 0.2s;letter-spacing:0.02em}
+.cf-btn:hover{background:var(--green);transform:translateY(-1px);box-shadow:0 6px 20px rgba(14,168,107,0.25)}
+
+/* FOOTER */
+footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:0.77rem;color:var(--muted);background:var(--bg2)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:1;transform:none}
+.js-loaded .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.js-loaded .reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:0.08s}.d2{transition-delay:0.16s}.d3{transition-delay:0.24s}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  #hero{padding:7rem 1.5rem 4rem}
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-right{display:none}
+  section{padding:4.5rem 1.5rem}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .exp-layout{grid-template-columns:1fr}
+  .exp-sidebar{border-right:none;border-bottom:1px solid var(--border);display:flex;overflow-x:auto}
+  .exp-tab{border-left:none;border-bottom:3px solid transparent;white-space:nowrap;border-radius:0}
+  .exp-tab.active{border-bottom-color:var(--green);border-left:none;background:var(--green-light)}
+  .proj-right{display:none}
+  .skills-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+}
+@media(max-width:600px){.cert-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">Shashikant S Desai<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:shashikantadesai369@gmail.com" class="nav-cta">Hire Me →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-bg-shape2"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-chip">Available for Opportunities</div>
+      <h1 class="hero-name">Shashikant S Desai</h1>
+      <p class="hero-sub-name">Software Engineer · Bengaluru, India</p>
+      <p class="hero-role"><strong>GRC Specialist</strong> · Java · Oracle PL/SQL · MetricStream App Studio</p>
+      <p class="hero-desc">
+        2.5+ years at ProBuddy Software Solutions building enterprise <strong>GRC compliance systems</strong> on MetricStream. Specialized in <strong>Java, Oracle PL/SQL</strong>, Forms, Workflows, Blueprints, Infolets and Dashboards across CSR, ISM, MET, CMP &amp; PDMS modules for global clients.
+      </p>
+      <div class="hero-btns">
+        <a href="#experience" class="btn-prim">View My Work →</a>
+        <a href="#contact" class="btn-sec">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="profile-card">
+        <div class="pc-header">
+          <div class="pc-avatar">SD</div>
+          <div>
+            <div class="pc-name">Shashikant S Desai</div>
+            <div class="pc-title">Software Engineer · GRC</div>
+            <div class="pc-available">Open to Work</div>
+          </div>
+        </div>
+        <div class="pc-stats">
+          <div class="pc-stat"><div class="pc-stat-num g">2.5+</div><div class="pc-stat-label">Years Exp</div></div>
+          <div class="pc-stat"><div class="pc-stat-num g">4</div><div class="pc-stat-label">GRC Products</div></div>
+          <div class="pc-stat"><div class="pc-stat-num g">3</div><div class="pc-stat-label">Global Clients</div></div>
+          <div class="pc-stat"><div class="pc-stat-num g">5</div><div class="pc-stat-label">Certifications</div></div>
+        </div>
+        <div class="pc-stack">
+          <span class="pc-chip">Java</span><span class="pc-chip">PL/SQL</span><span class="pc-chip">MetricStream</span><span class="pc-chip">Spring Boot</span><span class="pc-chip">Angular</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="s-eyebrow reveal">Who I Am</div>
+    <div class="about-grid">
+      <div>
+        <h2 class="s-title reveal">About Me</h2>
+        <div class="about-body reveal">
+          <p>I'm a <strong>Software Engineer</strong> with 2.5+ years at <strong>ProBuddy Software Solutions</strong>, specializing in Java and GRC (Governance, Risk &amp; Compliance) on the MetricStream platform.</p>
+          <p>Proficient in <strong>Oracle SQL and PL/SQL</strong> — complex queries, procedures and functions. Extensive experience with MetricStream development tools including <strong>Forms, Reports, Infolets, Blueprints, Workflows and Data Objects</strong>, plus JavaScript (Form JS) and Business Rules.</p>
+          <p>Delivered enterprise GRC solutions for global clients across <strong>CSR, ISM, MET, CMP and PDMS</strong> modules. Passionate about building scalable, efficient enterprise solutions with continuous learning in Java and PL/SQL.</p>
+        </div>
+        <div class="about-card reveal" style="margin-top:2rem">
+          <div class="ac-title">Quick Info</div>
+          <div class="ai-row"><span class="ai-k">Full Name</span><span class="ai-v">Shashikant S Desai</span></div>
+          <div class="ai-row"><span class="ai-k">Location</span><span class="ai-v">Bengaluru, Karnataka</span></div>
+          <div class="ai-row"><span class="ai-k">Education</span><span class="ai-v">BE · BLDEA CET, Bijapur (2018–2022)</span></div>
+          <div class="ai-row"><span class="ai-k">Email</span><span class="ai-v">shashikantadesai369@gmail.com</span></div>
+          <div class="ai-row"><span class="ai-k">Phone</span><span class="ai-v">+91-6361710969</span></div>
+          <div class="ai-row"><span class="ai-k">Languages</span><span class="ai-v">English · Kannada · Hindi</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="about-stats reveal">
+          <div class="as-card"><div class="as-num">2.5+</div><div class="as-label">Years at ProBuddy</div></div>
+          <div class="as-card"><div class="as-num">4</div><div class="as-label">GRC Products</div></div>
+          <div class="as-card"><div class="as-num">3</div><div class="as-label">Global Clients</div></div>
+          <div class="as-card"><div class="as-num">1</div><div class="as-label">Certification</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="s-eyebrow reveal">Career</div>
+    <h2 class="s-title reveal">Experience</h2>
+    <p class="s-sub reveal">From internship to enterprise GRC delivery — building real solutions for real clients.</p>
+    <div class="exp-layout reveal">
+      <div class="exp-sidebar">
+        <div class="exp-tab active" data-tab="probuddy">
+          <div class="et-role">Software Engineer</div>
+          <div class="et-company">Probuddy Software</div>
+          <div class="et-period">Sept 2023 – Present</div>
+        </div>
+        <div class="exp-tab" data-tab="kodnest">
+          <div class="et-role">Developer Intern</div>
+          <div class="et-company">KodNest Technologies</div>
+          <div class="et-period">Jan – Jun 2023</div>
+        </div>
+      </div>
+      <div class="exp-body active" id="tab-probuddy">
+        <div class="exp-body-inner">
+          <div class="eb-role">Software Engineer</div>
+          <div class="eb-meta">ProBuddy Software Solutions · Bengaluru &nbsp;·&nbsp; <span>Sept 2023 – Present</span></div>
+          <div class="exp-modules">
+            <div class="em-block">
+              <div class="em-badge green">Overview</div>
+              <ul class="em-bullets">
+                <li>2.5+ years delivering <strong>4 enterprise GRC products</strong> on MetricStream for global financial clients — GOLUB, QIB, GELL and PDMS/REN</li>
+                <li>Proficient in MetricStream tools: <strong>Forms, Reports, Infolets, Blueprints, Workflows, Data Objects</strong> and JavaScript (Form JS) &amp; Business Rules</li>
+                <li>Built and optimized <strong>Java hooks, post-hooks, BAPI logic</strong> and Oracle PL/SQL procedures across all modules</li>
+                <li>Created <strong>custom dashboards and Infolets</strong> for business metric visualization and real-time compliance visibility</li>
+                <li>Deployed application patches using <strong>Git and Jenkins (Patch/MSAR)</strong> across all projects</li>
+                <li>Resolved Jira tickets across sprints, collaborated directly with clients on requirements and module functionality</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-body" id="tab-kodnest">
+        <div class="exp-body-inner">
+          <div class="eb-role">Software Developer Intern</div>
+          <div class="eb-meta">KodNest Technologies · Bengaluru &nbsp;·&nbsp; <span>Jan 2023 – Jun 2023</span></div>
+          <div class="exp-modules">
+            <div class="em-block">
+              <div class="em-badge green">LearnSpear — Online Course Platform</div>
+              <ul class="em-bullets">
+                <li>Built end-to-end full-stack application using <strong>Java, Spring Boot, Hibernate, JDBC</strong></li>
+                <li>Implemented <strong>role-based login</strong>: teachers can create/manage courses, students can browse/purchase courses</li>
+                <li>Integrated <strong>Razorpay</strong> for secure payment processing</li>
+                <li>Designed and implemented <strong>REST APIs</strong> for course management, enrolment and transactions; tested via Postman</li>
+                <li>Created user-friendly UI using <strong>HTML, CSS, JavaScript and Angular</strong></li>
+                <li>Connected to <strong>MySQL and Oracle</strong> databases for backend operations</li>
+                <li>Ensured responsive UI/UX with basic <strong>authentication and authorization</strong> security</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="s-eyebrow reveal">Work</div>
+    <h2 class="s-title reveal">Projects</h2>
+    <p class="s-sub reveal">5 products delivered — 4 enterprise GRC + 1 personal. Click any card to expand details.</p>
+    <div class="proj-cards reveal">
+
+      <!-- PDMS shown first (latest) but numbered 04 -->
+      <div class="proj-card" onclick="toggleProj(this)">
+        <div class="proj-card-header">
+          <div class="proj-card-left">
+            <div class="proj-card-num">PROJECT 04 · LATEST · Jan 2026 – Present</div>
+            <div class="proj-card-name">PDMS / REN — Policy &amp; Document<br/>Management &amp; Regulatory Engagement</div>
+            <div class="proj-card-client">MetricStream PDMS · REN Modules</div>
+          </div>
+          <div class="proj-card-toggle">+</div>
+        </div>
+        <div class="proj-card-tags">
+          <span class="p-tag">MetricStream</span><span class="p-tag">Java</span><span class="p-tag">Hooks</span><span class="p-tag">Post-hooks</span><span class="p-tag">Reports</span><span class="p-tag">Jira</span>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-card-divider"></div>
+          <ul class="proj-bullets">
+            <li>Verified <strong>Java logic including hooks and post-hook procedures</strong> for the PDMS product</li>
+            <li>Investigated and resolved <strong>Jira tickets</strong> for both PDMS and REN products</li>
+            <li>Worked on <strong>PDMS Reports</strong> for document management visibility</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- GELL = 03 -->
+      <div class="proj-card" onclick="toggleProj(this)">
+        <div class="proj-card-header">
+          <div class="proj-card-left">
+            <div class="proj-card-num">PROJECT 03 · Oct 2025 – Dec 2025</div>
+            <div class="proj-card-name">GELL — Great Eastern Life<br/>CSR Module (Client Survey Recovery)</div>
+            <div class="proj-card-client">Client: GELL · MetricStream App Studio CSR, SMP</div>
+          </div>
+          <div class="proj-card-toggle">+</div>
+        </div>
+        <div class="proj-card-tags">
+          <span class="p-tag">Java</span><span class="p-tag">Oracle SQL/PL/SQL</span><span class="p-tag">JavaScript</span><span class="p-tag">MetricStream CSR</span><span class="p-tag">Git</span><span class="p-tag">Jenkins</span>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-card-divider"></div>
+          <ul class="proj-bullets">
+            <li>Developed and customized <strong>enterprise CSR modules</strong> with backend logic and UI</li>
+            <li>Designed and optimized <strong>PL/SQL procedures, hooks and post-hooks</strong> to improve application performance</li>
+            <li>Built <strong>custom forms, workflows, blueprints and data objects</strong></li>
+            <li>Created <strong>dashboards and reports</strong> for visualizations</li>
+            <li>Built and deployed <strong>application patches using Git and Jenkins</strong> (Patch/MSAR)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- QIB = 02 -->
+      <div class="proj-card" onclick="toggleProj(this)">
+        <div class="proj-card-header">
+          <div class="proj-card-left">
+            <div class="proj-card-num">PROJECT 02 · Apr 2024 – Sept 2025</div>
+            <div class="proj-card-name">QIB — Qatar Islamic Bank<br/>MET &amp; CMP Modules</div>
+            <div class="proj-card-client">Client: QIB · MetricStream App Studio MET, CMP</div>
+          </div>
+          <div class="proj-card-toggle">+</div>
+        </div>
+        <div class="proj-card-tags">
+          <span class="p-tag">Java</span><span class="p-tag">Oracle SQL/PL/SQL</span><span class="p-tag">JavaScript</span><span class="p-tag">MetricStream MET/CMP</span><span class="p-tag">BAPI</span><span class="p-tag">YAML</span>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-card-divider"></div>
+          <ul class="proj-bullets">
+            <li>Developed and maintained <strong>MET and CMP modules</strong> with backend enhancements and UI features</li>
+            <li>Modified and optimized <strong>PL/SQL procedures</strong> to enhance performance and resolve logic issues</li>
+            <li>Designed <strong>custom dashboards, reports and Infocenters</strong> for business metric visualization</li>
+            <li>Configured and customized <strong>forms, workflows, blueprints and data objects</strong></li>
+            <li>Developed and maintained <strong>email templates</strong> and reviewed Java logic for automated system emails</li>
+            <li>Evaluated <strong>Java-based BAPI code</strong> including workflow evaluation and building/packaging BAPI JAR files using YAML</li>
+            <li>Built patches via <strong>Git and Jenkins</strong> for deployment</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- GOLUB = 01 -->
+      <div class="proj-card" onclick="toggleProj(this)">
+        <div class="proj-card-header">
+          <div class="proj-card-left">
+            <div class="proj-card-num">PROJECT 01 · Sept 2023 – Apr 2024</div>
+            <div class="proj-card-name">GOLUB — ISM Module<br/>Issue &amp; Security Management</div>
+            <div class="proj-card-client">Client: GOLUB · MetricStream App Studio ISM</div>
+          </div>
+          <div class="proj-card-toggle">+</div>
+        </div>
+        <div class="proj-card-tags">
+          <span class="p-tag">Oracle SQL/PL/SQL</span><span class="p-tag">Java</span><span class="p-tag">JavaScript</span><span class="p-tag">MetricStream ISM</span><span class="p-tag">BAPI</span><span class="p-tag">YAML</span>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-card-divider"></div>
+          <ul class="proj-bullets">
+            <li>Developed and maintained <strong>ISM modules</strong> including backend enhancements and UI features</li>
+            <li>Configured and customized <strong>forms, workflows, blueprints and data objects</strong></li>
+            <li>Evaluated <strong>Java-based BAPI code</strong> including workflow evaluation and building/packaging BAPI JAR files using YAML</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LearnSpear - Personal -->
+      <div class="proj-card" onclick="toggleProj(this)" style="grid-column:1/-1">
+        <div class="proj-card-header">
+          <div class="proj-card-left">
+            <div class="proj-card-num">PERSONAL PROJECT · Full Stack</div>
+            <div class="proj-card-name">LearnSpear — Online Course Platform</div>
+            <div class="proj-card-client">Java · Spring Boot · Angular · Razorpay · REST APIs</div>
+          </div>
+          <div class="proj-card-toggle">+</div>
+        </div>
+        <div class="proj-card-tags">
+          <span class="p-tag">Java</span><span class="p-tag">Spring Boot</span><span class="p-tag">Hibernate</span><span class="p-tag">Angular</span><span class="p-tag">REST APIs</span><span class="p-tag">MySQL</span><span class="p-tag">Oracle</span><span class="p-tag">Razorpay</span><span class="p-tag">Maven</span>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-card-divider"></div>
+          <ul class="proj-bullets">
+            <li>Developed a dynamic online learning website using <strong>Java Spring Boot, HTML, CSS and Maven</strong></li>
+            <li>Implemented <strong>role-based login</strong>: teachers can create/manage courses, students can browse/purchase courses</li>
+            <li>Integrated <strong>Razorpay</strong> for secure payment processing</li>
+            <li>Designed and implemented <strong>REST APIs</strong> for course management, enrolment and transactions; tested via Postman</li>
+            <li>Ensured responsive UI/UX and basic security for <strong>authentication and authorization</strong></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <div class="container">
+    <div class="s-eyebrow reveal">Expertise</div>
+    <h2 class="s-title reveal">Tech Stack</h2>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <div class="sg reveal">
+          <div class="sg-head">GRC Platform</div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">MetricStream GRC (CSR, ISM, CMP, MET)</span><span class="sk-pct">90%</span></div><div class="sk-track"><div class="sk-bar" data-w="90"></div></div></div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">Forms, Workflows, Blueprints, Data Objects</span><span class="sk-pct">88%</span></div><div class="sk-track"><div class="sk-bar" data-w="88"></div></div></div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">Infolets, Reports, Dashboards</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-bar" data-w="85"></div></div></div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">BAPI (Java Business API) · YAML</span><span class="sk-pct">80%</span></div><div class="sk-track"><div class="sk-bar" data-w="80"></div></div></div>
+        </div>
+        <div class="sg reveal d1">
+          <div class="sg-head">Languages</div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">Java</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-bar" data-w="85"></div></div></div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">Oracle SQL / PL/SQL</span><span class="sk-pct">88%</span></div><div class="sk-track"><div class="sk-bar" data-w="88"></div></div></div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">JavaScript (Form JS)</span><span class="sk-pct">72%</span></div><div class="sk-track"><div class="sk-bar" data-w="72"></div></div></div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">Python (Basic)</span><span class="sk-pct">40%</span></div><div class="sk-track"><div class="sk-bar" data-w="40"></div></div></div>
+        </div>
+        <div class="sg reveal d2">
+          <div class="sg-head">Frameworks &amp; Frontend</div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">Spring Boot / Hibernate</span><span class="sk-pct">75%</span></div><div class="sk-track"><div class="sk-bar" data-w="75"></div></div></div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">REST APIs</span><span class="sk-pct">78%</span></div><div class="sk-track"><div class="sk-bar" data-w="78"></div></div></div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">Angular / HTML / CSS</span><span class="sk-pct">68%</span></div><div class="sk-track"><div class="sk-bar" data-w="68"></div></div></div>
+          <div class="sk-item"><div class="sk-row"><span class="sk-name">MySQL</span><span class="sk-pct">70%</span></div><div class="sk-track"><div class="sk-bar" data-w="70"></div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="tools-wrap reveal">
+          <div class="tools-head">Tools &amp; IDEs</div>
+          <div class="tools-grid-wrap">
+            <span class="t-chip hi">MetricStream App Studio</span>
+            <span class="t-chip hi">Git</span>
+            <span class="t-chip hi">Jenkins</span>
+            <span class="t-chip hi">Maven</span>
+            <span class="t-chip">Postman</span>
+            <span class="t-chip">Eclipse</span>
+            <span class="t-chip">IntelliJ IDEA</span>
+            <span class="t-chip">VS Code</span>
+            <span class="t-chip hi">Oracle DB</span>
+            <span class="t-chip">MySQL</span>
+            <span class="t-chip">Jira</span>
+            <span class="t-chip">YAML</span>
+            <span class="t-chip">Risk Assessment Workflows</span>
+            <span class="t-chip">Compliance Modules</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="s-eyebrow reveal">Credentials</div>
+    <h2 class="s-title reveal">Certifications</h2>
+    <div class="cert-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="cert-card reveal d1">
+        <div class="cert-icon">☕</div>
+        <div class="cert-name">Java Full Stack Developer</div>
+        <div class="cert-issuer">KodNest Technologies</div>
+        <div class="cert-badge done">Completed · 2023</div>
+      </div>
+      <div class="cert-card reveal d2" style="background:var(--bg);border-style:dashed">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">Bachelor of Engineering (BE)</div>
+        <div class="cert-issuer">BLDEA's College of Engineering &amp; Technology, Bijapur</div>
+        <div class="cert-badge done">2018 – 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="s-eyebrow">Say Hello</div>
+        <h2 class="s-title">Let's Work<br/>Together</h2>
+        <p>Open to new opportunities in GRC, Java backend, or full-stack development. Whether it's a full-time role, contract work, or a quick consultation — feel free to reach out.</p>
+        <div class="c-links">
+          <a href="mailto:shashikantadesai369@gmail.com" class="c-link">
+            <div class="c-icon">✉️</div>
+            <div><div>shashikantadesai369@gmail.com</div><span class="c-sub">Email me directly</span></div>
+          </a>
+          <a href="tel:+916361710969" class="c-link">
+            <div class="c-icon">📞</div>
+            <div><div>+91-6361710969</div><span class="c-sub">Call or WhatsApp</span></div>
+          </a>
+          <a href="https://linkedin.com/in/shashikant-s-desai6361" target="_blank" class="c-link">
+            <div class="c-icon" style="font-weight:900;font-family:serif;font-size:1rem;color:#0a66c2">in</div>
+            <div><div>linkedin.com/in/shashikant-s-desai6361</div><span class="c-sub">Connect on LinkedIn</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form reveal d2">
+        <div class="cf-title">Send a Message</div>
+        <div class="cf-field"><label>Your Name</label><input type="text" placeholder="John Doe"/></div>
+        <div class="cf-field"><label>Email Address</label><input type="email" placeholder="john@company.com"/></div>
+        <div class="cf-field"><label>Message</label><textarea placeholder="I'd love to discuss an opportunity with you..."></textarea></div>
+        <button class="cf-btn" onclick="alert('Thanks for reaching out! Please email shashikantadesai369@gmail.com directly.')">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2025 Shashikant S Desai · Bengaluru, India</div>
+  <div>GRC Specialist · Java · Oracle PL/SQL · MetricStream</div>
+</footer>
+
+<script>
+  // JS loaded class for animations
+  document.documentElement.classList.add('js-loaded');
+
+  // Scroll reveal
+  const revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+      }
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
+
+  // Skill bars
+  document.querySelectorAll('.sk-bar').forEach(function(bar){
+    var barObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(x){
+        if(x.isIntersecting){ bar.style.width = bar.dataset.w + '%'; }
+      });
+    },{threshold:0.1});
+    barObs.observe(bar);
+  });
+
+  // Project card toggle
+  document.querySelectorAll('.proj-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var isOpen = card.classList.contains('open');
+      document.querySelectorAll('.proj-card.open').forEach(function(c){ c.classList.remove('open'); });
+      if(!isOpen){ card.classList.add('open'); }
+    });
+  });
+
+  // Experience tabs
+  document.querySelectorAll('.exp-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.exp-tab').forEach(function(t){ t.classList.remove('active'); });
+      document.querySelectorAll('.exp-body').forEach(function(b){ b.classList.remove('active'); });
+      tab.classList.add('active');
+      var target = document.getElementById('tab-' + tab.dataset.tab);
+      if(target){ target.classList.add('active'); }
+    });
+  });
+</script>
+</body>
+</html>
